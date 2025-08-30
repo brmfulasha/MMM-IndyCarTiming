@@ -12,7 +12,7 @@ function getFlagStateText(flag_state) {
 Module.register("MMM-NASCARLive", {
   defaults: {
     updateIntervalRaceDay: 60000,
-    dataUrl: "https://cf.nascar.com/live/feeds/live-feed.json",
+    dataUrl: "https://indycar.blob.core.windows.net/racecontrol/timingscoring-ris.json",
     numberOfDrivers: 10 // Default number of drivers to show, configurable
   },
 
