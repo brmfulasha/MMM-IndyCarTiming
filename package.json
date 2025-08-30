@@ -1,0 +1,23 @@
+{
+  "name": "MMM-NASCARLive",
+  "version": "1.0.0",
+  "description": "A MagicMirror² module that displays live NASCAR race standings and hides itself when there is no active race.",
+  "main": "MMM-NASCARLive.js",
+  "scripts": {
+    "start": "echo 'This is a MagicMirror module. Please start MagicMirror normally.'"
+  },
+  "author": "brmfulasha",
+  "license": "MIT",
+  "keywords": [
+    "MagicMirror",
+    "NASCAR",
+    "live",
+    "standings",
+    "module"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brmfulasha/MMM-NASCARLive.git"
+  },
+  "dependencies": {}
+}

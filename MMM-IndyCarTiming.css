@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&display=swap');
+
+.MMM-NASCARLive {
+    font-family: 'Averia Sans Libre', Arial, sans-serif;
+    color: #ffffff; /* White text */
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.nascar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00; /* NASCAR gold */
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.nascar-data {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.nascar-highlight {
+    color: #ff6600; /* Bright orange for important data */
+    font-weight: bold;
+}
+
+.nascar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.nascar-table th, .nascar-table td {
+    padding: 2.5px; /* Reduced from 5px to 2.5px */
+    border-bottom: 1px solid #444;
+}
+
+.nascar-table th {
+    background: #222;
+    color: #ffcc00;
+}
+
+.nascar-table tr:nth-child(even) {
+    background: #333;
+}
+
+/* NEW: Reduce spacing in ol/li driver lists by 50% */
+.MMM-NASCARLive ol {
+    margin: 8px 0 8px 20px; /* Reduce default <ol> margin */
+    padding: 0;
+}
+.MMM-NASCARLive ol li {
+    margin-bottom: 4px; /* Reduce default <li> margin-bottom */
+    padding: 2px 0;     /* Reduce default <li> padding */
+}
+
+.nascar-error {
+    color: #ff4444; /* Red for errors */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
