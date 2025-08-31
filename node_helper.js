@@ -3,11 +3,11 @@ const https = require("https");
 
 module.exports = NodeHelper.create({
   start: function () {
-    console.log("MMM-NASCARLive helper started...");
+    console.log("MMM-IndyCarTiming helper started...");
   },
 
   socketNotificationReceived: function (notification, payload) {
-    if (notification === "GET_NASCAR_DATA") {
+    if (notification === "GET_INDYCAR_DATA") {
       this.getNascarData(payload);
     }
   },
@@ -46,7 +46,7 @@ module.exports = NodeHelper.create({
                 }))
               : [];
 
-            this.sendSocketNotification("NASCAR_DATA", {
+            this.sendSocketNotification("INDYCAR_DATA", {
               flag_state,
               run_name,
               track_name,
@@ -56,7 +56,7 @@ module.exports = NodeHelper.create({
               drivers,
             });
           } catch (e) {
-            console.error("MMM-NASCARLive: Error parsing NASCAR data", e);
+            console.error("MMM-IndyCarTiming: Error parsing INDYCAR data", e);
             this.sendSocketNotification(
               "NASCAR_ERROR",
               "Error parsing NASCAR live data."
@@ -65,7 +65,7 @@ module.exports = NodeHelper.create({
         });
       })
       .on("error", (err) => {
-        console.error("MMM-NASCARLive: Unable to retrieve data", err);
+        console.error("MMM-IndyCarTiming: Unable to retrieve data", err);
         this.sendSocketNotification(
           "NASCAR_ERROR",
           "Unable to retrieve NASCAR live data."
