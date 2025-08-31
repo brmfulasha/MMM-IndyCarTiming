@@ -9,7 +9,7 @@ function getFlagStateText(flag_state) {
   }
 }
 
-Module.register("MMM-NASCARLive", {
+Module.register("MMM-IndyCarTiming", {
   defaults: {
     updateIntervalRaceDay: 60000,
     dataUrl: "https://indycar.blob.core.windows.net/racecontrol/timingscoring-ris.json",
@@ -19,7 +19,7 @@ Module.register("MMM-NASCARLive", {
   start: function () {
     this.full_name = [];
     this.raceActive = false;
-    this.raceName = "NASCAR Live Running Order";
+    this.raceName = "IndyCar Live Running Order";
     this.trackName = "";
     this.currentTimeout = null;
     this.loaded = false;
@@ -66,15 +66,15 @@ Module.register("MMM-NASCARLive", {
   },
   
   getData: function () {
-    this.sendSocketNotification("GET_NASCAR_DATA", this.config.dataUrl);
+    this.sendSocketNotification("GET_INDYCAR_DATA", this.config.dataUrl);
   },
 
   socketNotificationReceived: function (notification, payload) {
-    if (notification === "NASCAR_DATA") {
+    if (notification === "INDYCAR_DATA") {
       this.loaded = true;
       this.full_name = payload.drivers || [];
       this.raceActive = !!(payload.flag_state && payload.flag_state !== "FINISHED");
-      this.raceName = payload.run_name ? payload.run_name : "No Active NASCAR Race";
+      this.raceName = payload.run_name ? payload.run_name : "No Active IndyCar Race";
       this.trackName = payload.track_name ? payload.track_name : "";
       this.series_id = payload.series_id || "1";
       this.lap_number = (typeof payload.lap_number !== "undefined") ? payload.lap_number : null;
@@ -82,11 +82,11 @@ Module.register("MMM-NASCARLive", {
       this.flag_state = typeof payload.flag_state !== "undefined" ? payload.flag_state : null;
       this.updateDom();
       this.scheduleNextFetch();
-    } else if (notification === "NASCAR_ERROR") {
+    } else if (notification === "INDYCAR_ERROR") {
       this.loaded = true;
       this.full_name = [];
       this.raceActive = false;
-      this.raceName = "No Active NASCAR Race";
+      this.raceName = "No Active IndyCar Race";
       this.trackName = "";
       this.series_id = "1";
       this.lap_number = null;
